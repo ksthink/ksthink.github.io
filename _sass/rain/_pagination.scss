@@ -32,7 +32,7 @@
 
   .arrow {
     @include transition(all .3s ease-out);
-    color: $default-color;
+    color: tomato;
     position: absolute;
 
     &:hover,
