@@ -53,6 +53,10 @@
   .flex-container {
     display: flex;
     justify-content: space-between;
+
+    a {
+      color: tomato;
+    }
   }
 
   .fa-angle-left, .fa-angle-right {
