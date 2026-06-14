@@ -1,0 +1,486 @@
+---
+layout: null
+permalink: /setting/
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블로그 설정</title>
+  <style>
+    :root {
+      --bg: #111118;
+      --surface: #1a1a26;
+      --card: #22222f;
+      --accent: #7c6af7;
+      --accent2: #a78bfa;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --border: #2e2e40;
+      --success: #34d399;
+      --error: #f87171;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2.5rem 1rem 4rem;
+    }
+    .container { max-width: 700px; margin: 0 auto; }
+
+    /* Header */
+    .header { margin-bottom: 2rem; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--text); }
+    h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+    .subtitle { color: var(--muted); font-size: 0.85rem; margin-top: 0.25rem; }
+
+    /* Auth card */
+    .auth-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .status-indicator {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+    .status-indicator.ok { background: var(--success); }
+    .auth-card input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.8rem;
+      padding: 0.5rem 0.75rem;
+      transition: border-color 0.15s;
+    }
+    .auth-card input:focus { outline: none; border-color: var(--accent); }
+
+    /* Section */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1.25rem;
+    }
+    .field { margin-bottom: 0.875rem; }
+    .field:last-child { margin-bottom: 0; }
+    .field-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .field input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.875rem;
+      padding: 0.5rem 0.75rem;
+      transition: border-color 0.15s;
+    }
+    .field input:focus { outline: none; border-color: var(--accent); }
+    .field input::placeholder { color: var(--muted); }
+
+    /* Font grid */
+    .font-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.625rem;
+    }
+    .font-option { cursor: pointer; }
+    .font-option input[type="radio"] { display: none; }
+    .font-box {
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 0.875rem;
+      background: var(--bg);
+      transition: border-color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .font-option input:checked + .font-box {
+      border-color: var(--accent);
+      background: rgba(124, 106, 247, 0.08);
+    }
+    .font-option:hover .font-box { border-color: var(--muted); }
+    .font-option input:checked + .font-box .font-sample { opacity: 1; }
+    .font-sample {
+      font-size: 1.3rem;
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+    .font-meta { font-size: 0.7rem; color: var(--muted); }
+
+    /* Buttons */
+    .btn {
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn:active { transform: scale(0.97); }
+    .btn-ghost {
+      background: var(--border);
+      color: var(--text);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .actions {
+      display: flex;
+      gap: 0.625rem;
+      justify-content: flex-end;
+      margin-top: 1.25rem;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      padding: 0.7rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--success);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .toast.visible { opacity: 1; transform: translateY(0); }
+    .toast.err { background: var(--error); color: #111; }
+
+    /* Loading overlay for save button */
+    .btn-primary.loading { opacity: 0.6; pointer-events: none; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <a href="/" class="back-link">← 블로그로 돌아가기</a>
+    <h1>블로그 설정</h1>
+    <p class="subtitle">변경사항은 GitHub에 직접 커밋됩니다. Pages 빌드 후(약 1–2분) 반영됩니다.</p>
+  </div>
+
+  <!-- Auth -->
+  <div class="auth-card">
+    <div class="status-indicator" id="dot"></div>
+    <input type="password" id="token" placeholder="GitHub Personal Access Token  (ghp_...)" autocomplete="off">
+    <button class="btn btn-ghost" onclick="loadAll()">불러오기</button>
+  </div>
+
+  <!-- Site Info -->
+  <div class="section">
+    <div class="section-label">사이트 정보</div>
+    <div class="field"><label class="field-label">블로그 제목</label><input type="text" id="siteTitle" placeholder="My Blog"></div>
+    <div class="field"><label class="field-label">소개 문구</label><input type="text" id="siteDesc" placeholder="블로그 한 줄 소개"></div>
+    <div class="field"><label class="field-label">URL</label><input type="text" id="siteUrl" placeholder="https://username.github.io"></div>
+  </div>
+
+  <!-- Author -->
+  <div class="section">
+    <div class="section-label">저자</div>
+    <div class="field"><label class="field-label">이름</label><input type="text" id="authorName" placeholder="이름"></div>
+    <div class="field"><label class="field-label">이메일</label><input type="text" id="authorEmail" placeholder="email@example.com"></div>
+    <div class="field"><label class="field-label">웹사이트</label><input type="text" id="authorUrl" placeholder="https://example.com"></div>
+  </div>
+
+  <!-- Social -->
+  <div class="section">
+    <div class="section-label">소셜 링크</div>
+    <div class="field"><label class="field-label">이메일</label><input type="text" id="socialEmail" placeholder="email@example.com"></div>
+    <div class="field"><label class="field-label">GitHub</label><input type="text" id="socialGithub" placeholder="https://github.com/username"></div>
+    <div class="field"><label class="field-label">Twitter / X</label><input type="text" id="socialTwitter" placeholder="https://twitter.com/username"></div>
+    <div class="field"><label class="field-label">LinkedIn</label><input type="text" id="socialLinkedin" placeholder="https://linkedin.com/in/username"></div>
+  </div>
+
+  <!-- Font -->
+  <div class="section">
+    <div class="section-label">폰트</div>
+    <div class="font-grid" id="fontGrid"></div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-ghost" onclick="loadAll()">새로고침</button>
+    <button class="btn btn-primary" id="saveBtn" onclick="saveAll()">GitHub에 저장</button>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const REPO  = 'ksthink/ksthink.github.io';
+  const BASE  = `https://api.github.com/repos/${REPO}/contents`;
+
+  const FONTS = [
+    { key: 'dnfbitbitv2',       family: 'DNFBitBitv2',       label: '던전앤파이터 비트비트' },
+    { key: 'iyagiggc',          family: 'IyagiGGC',          label: '이야기 굵은체' },
+    { key: 'moneygraphy-pixel', family: 'Moneygraphy Pixel', label: '머니그라피 픽셀' },
+    { key: 'mulmaru',           family: 'Mulmaru',           label: '물마루' },
+    { key: 'stardust',          family: 'stardust',          label: '스타더스트' },
+    { key: 'monas12',           family: 'MonaS12',           label: 'MonaS12' },
+  ];
+
+  /* ── Font grid ── */
+  const grid = document.getElementById('fontGrid');
+  FONTS.forEach(f => {
+    const lnk = document.createElement('link');
+    lnk.rel = 'stylesheet';
+    lnk.href = `https://font.ksthink.com/f/${f.key}.css`;
+    document.head.appendChild(lnk);
+
+    const lbl = document.createElement('label');
+    lbl.className = 'font-option';
+    lbl.innerHTML = `
+      <input type="radio" name="font" value="${f.key}">
+      <div class="font-box">
+        <div class="font-sample" style="font-family:'${f.family}',monospace">가나다 ABC 123</div>
+        <div class="font-meta">${f.label}</div>
+      </div>`;
+    grid.appendChild(lbl);
+  });
+
+  /* ── Token ── */
+  const tokenEl = document.getElementById('token');
+  tokenEl.value = sessionStorage.getItem('_gh') || '';
+  tokenEl.addEventListener('input', () => sessionStorage.setItem('_gh', tokenEl.value.trim()));
+
+  function tok() { return tokenEl.value.trim(); }
+  function hdrs() {
+    return { Authorization: `token ${tok()}`, Accept: 'application/vnd.github.v3+json' };
+  }
+
+  /* ── File cache ── */
+  const shas = {};
+  let varContent = '';
+
+  async function getFile(path) {
+    const r = await fetch(`${BASE}/${path}`, { headers: hdrs() });
+    if (!r.ok) throw new Error(`${path} 불러오기 실패 (${r.status})`);
+    const d = await r.json();
+    shas[path] = d.sha;
+    return decodeURIComponent(escape(atob(d.content.replace(/\n/g, ''))));
+  }
+
+  /* ── YAML helpers ── */
+  function yGet(yaml, key) {
+    const m = yaml.match(new RegExp(`^${key}:\\s+(.+)$`, 'm'));
+    return m ? m[1].replace(/^["']|["']$/g, '').trim() : '';
+  }
+  function yGetNested(yaml, parent, key) {
+    const start = yaml.indexOf(`\n${parent}:`);
+    if (start === -1) return '';
+    const block = yaml.slice(start);
+    const m = block.match(new RegExp(`^[ \\t]+${key}:\\s+(.+)$`, 'm'));
+    return m ? m[1].replace(/^["']|["']$/g, '').trim() : '';
+  }
+
+  /* ── Load ── */
+  async function loadAll() {
+    if (!tok()) { toast('토큰을 입력해주세요.', true); return; }
+    try {
+      const [cfg, scss, vars] = await Promise.all([
+        getFile('_config.yml'),
+        getFile('assets/main.scss'),
+        getFile('_sass/rain/_variables.scss'),
+      ]);
+      varContent = vars;
+
+      /* populate */
+      set('siteTitle',    yGet(cfg, 'title'));
+      set('siteDesc',     yGet(cfg, 'description'));
+      set('siteUrl',      yGet(cfg, 'url'));
+      set('authorName',   yGetNested(cfg, 'author', 'name'));
+      set('authorEmail',  yGetNested(cfg, 'author', 'email'));
+      set('authorUrl',    yGetNested(cfg, 'author', 'url'));
+      set('socialEmail',  yGetNested(cfg, 'social', 'email'));
+      set('socialGithub', yGetNested(cfg, 'social', 'github'));
+      set('socialTwitter',yGetNested(cfg, 'social', 'twitter'));
+      set('socialLinkedin',yGetNested(cfg, 'social', 'linkedin'));
+
+      /* font */
+      const fm = scss.match(/font\.ksthink\.com\/f\/([^"']+)\.css/);
+      if (fm) {
+        const r = document.querySelector(`input[name="font"][value="${fm[1]}"]`);
+        if (r) r.checked = true;
+      }
+
+      document.getElementById('dot').classList.add('ok');
+      toast('설정을 불러왔습니다.');
+    } catch(e) { toast(e.message, true); }
+  }
+
+  /* ── Save ── */
+  async function saveAll() {
+    if (!tok()) { toast('토큰을 입력해주세요.', true); return; }
+    if (!shas['_config.yml']) { toast('먼저 설정을 불러와주세요.', true); return; }
+
+    const fontRadio = document.querySelector('input[name="font"]:checked');
+    if (!fontRadio) { toast('폰트를 선택해주세요.', true); return; }
+
+    const fontKey    = fontRadio.value;
+    const fontFamily = FONTS.find(f => f.key === fontKey).family;
+
+    const saveBtn = document.getElementById('saveBtn');
+    saveBtn.classList.add('loading');
+    saveBtn.textContent = '저장 중…';
+
+    try {
+      await putFile('_config.yml',               buildConfig(),         'settings: update site config');
+      await putFile('assets/main.scss',           buildMainScss(fontKey), `settings: font → ${fontKey}`);
+      await putFile('_sass/rain/_variables.scss', buildVariables(fontFamily), `settings: font-family → ${fontFamily}`);
+      toast('저장 완료! Pages 빌드 후 반영됩니다.');
+    } catch(e) { toast(e.message, true); }
+    finally {
+      saveBtn.classList.remove('loading');
+      saveBtn.textContent = 'GitHub에 저장';
+    }
+  }
+
+  async function putFile(path, content, msg) {
+    const body = {
+      message: msg,
+      content: btoa(unescape(encodeURIComponent(content))),
+      sha: shas[path],
+    };
+    const r = await fetch(`${BASE}/${path}`, {
+      method: 'PUT',
+      headers: { ...hdrs(), 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!r.ok) {
+      const e = await r.json();
+      throw new Error(`${path} 저장 실패: ${e.message}`);
+    }
+    const d = await r.json();
+    shas[path] = d.content.sha;
+  }
+
+  /* ── Builders ── */
+  function v(id) { return (document.getElementById(id)?.value || '').trim(); }
+  function set(id, val) { const el = document.getElementById(id); if (el) el.value = val; }
+
+  function buildConfig() {
+    return `# Site settings
+title:          ${v('siteTitle')}
+description:    "${v('siteDesc')}"
+url:            ${v('siteUrl')}
+
+# Author
+author:
+  name:         ${v('authorName')}
+  email:        ${v('authorEmail')}
+  url:          ${v('authorUrl')}
+
+# Build settings
+markdown:       kramdown
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  # - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Related posts settings
+related_posts_section:
+  max_count:        5
+  min_common_tags:  2
+
+# Links to social media
+social:
+  email: ${v('socialEmail')}
+  github: ${v('socialGithub')}
+  twitter: ${v('socialTwitter')}
+  linkedin: ${v('socialLinkedin')}
+`;
+  }
+
+  function buildMainScss(fontKey) {
+    return `---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import url("https://font.ksthink.com/f/${fontKey}.css");
+@import 'rain';
+`;
+  }
+
+  function buildVariables(fontFamily) {
+    return varContent
+      .replace(/\$sans-serif:.*?;/, `$sans-serif: '${fontFamily}', monospace;`)
+      .replace(/\$monospaced:.*?;/, `$monospaced: '${fontFamily}', monospace;`);
+  }
+
+  /* ── Toast ── */
+  let toastTimer;
+  function toast(msg, err = false) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'toast visible' + (err ? ' err' : '');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.className = 'toast', 3200);
+  }
+
+  /* ── Auto-load if token saved ── */
+  if (tokenEl.value) loadAll();
+</script>
+</body>
+</html>
