@@ -1,0 +1,220 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1781589807286,
+  "projectRoot": "/home/ubuntu/newsblog",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Ruby",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "Gemfile"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "bundler",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "_includes": {
+      "path": "_includes",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781589807277,
+      "keyFiles": [
+        "head.html"
+      ]
+    },
+    "_layouts": {
+      "path": "_layouts",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1781589807281,
+      "keyFiles": [
+        "default.html",
+        "home.html",
+        "post.html"
+      ]
+    },
+    "_posts": {
+      "path": "_posts",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1781589807281,
+      "keyFiles": [
+        "2025-09-15-korean-embedding-basics.md",
+        "2025-11-03-korean-pretrained-models.md",
+        "2026-02-20-korean-sentence-embedding-rag.md",
+        "2026-03-09-ko-sroberta-sentence-embedding.md",
+        "2026-03-23-kosimcse-contrastive-learning.md"
+      ]
+    },
+    "_sass": {
+      "path": "_sass",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781589807282,
+      "keyFiles": [
+        "rain.scss"
+      ]
+    },
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 6,
+      "lastAccessed": 1781589807282,
+      "keyFiles": [
+        "android-chrome-144x144.png",
+        "apple-touch-icon.png",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "favicon.ico"
+      ]
+    },
+    "images": {
+      "path": "images",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781589807282,
+      "keyFiles": [
+        "screenshot.png"
+      ]
+    },
+    "rain-master": {
+      "path": "rain-master",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781589807282,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "_sass/rain/_variables.scss",
+      "accessCount": 6,
+      "lastAccessed": 1781419732831,
+      "type": "file"
+    },
+    {
+      "path": "assets/main.scss",
+      "accessCount": 4,
+      "lastAccessed": 1781408815655,
+      "type": "file"
+    },
+    {
+      "path": ".claude/settings.json",
+      "accessCount": 4,
+      "lastAccessed": 1781409955899,
+      "type": "file"
+    },
+    {
+      "path": "_sass/rain/_base.scss",
+      "accessCount": 4,
+      "lastAccessed": 1781420081908,
+      "type": "file"
+    },
+    {
+      "path": "setting.html",
+      "accessCount": 3,
+      "lastAccessed": 1781410069816,
+      "type": "file"
+    },
+    {
+      "path": "_sass/rain/_pagination.scss",
+      "accessCount": 3,
+      "lastAccessed": 1781420508992,
+      "type": "file"
+    },
+    {
+      "path": "_sass/rain/_layout.scss",
+      "accessCount": 3,
+      "lastAccessed": 1781421340971,
+      "type": "file"
+    },
+    {
+      "path": "_config.yml",
+      "accessCount": 2,
+      "lastAccessed": 1781409353509,
+      "type": "file"
+    },
+    {
+      "path": "_layouts/default.html",
+      "accessCount": 2,
+      "lastAccessed": 1781420674807,
+      "type": "file"
+    },
+    {
+      "path": "_sass/rain/_post.scss",
+      "accessCount": 2,
+      "lastAccessed": 1781421477178,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 1,
+      "lastAccessed": 1781403839778,
+      "type": "file"
+    },
+    {
+      "path": "Gemfile",
+      "accessCount": 1,
+      "lastAccessed": 1781403839931,
+      "type": "file"
+    },
+    {
+      "path": "_layouts/home.html",
+      "accessCount": 1,
+      "lastAccessed": 1781420500568,
+      "type": "file"
+    },
+    {
+      "path": "_posts/2025-09-15-korean-embedding-basics.md",
+      "accessCount": 1,
+      "lastAccessed": 1781420964789,
+      "type": "file"
+    },
+    {
+      "path": "_posts/2025-11-03-korean-pretrained-models.md",
+      "accessCount": 1,
+      "lastAccessed": 1781420992750,
+      "type": "file"
+    },
+    {
+      "path": "_posts/2026-02-20-korean-sentence-embedding-rag.md",
+      "accessCount": 1,
+      "lastAccessed": 1781421025804,
+      "type": "file"
+    },
+    {
+      "path": "_posts/2026-06-16-python-uv-package-manager.md",
+      "accessCount": 1,
+      "lastAccessed": 1781589959662,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
