@@ -13,6 +13,12 @@
     {% endif %}
   </title>
 
+  <!-- Fonts: preconnect + early load to avoid FOUT/loading delay -->
+  <link rel="preconnect" href="https://font.ksthink.com" crossorigin>
+  <link rel="preconnect" href="https://hkcbnibbguzbgqucnkzm.supabase.co" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://hkcbnibbguzbgqucnkzm.supabase.co/storage/v1/object/public/fonts/Galmuri11.woff2" crossorigin>
+  <link rel="stylesheet" href="https://font.ksthink.com/f/galmuri11.css">
+
   <!-- CSS -->
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
