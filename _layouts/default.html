@@ -10,18 +10,6 @@
           <h2 class="nav-title">{{ site.title }}</h2>
         </a>
         <ul class="nav-social-icons">
-          <li class="nav-search" id="nav-search">
-            <form class="nav-search-form" id="search-form" role="search" action="#">
-              <input type="search" id="search-input" class="nav-search-input"
-                     placeholder="검색어 입력 후 Enter" aria-label="검색어"
-                     autocomplete="off" spellcheck="false" enterkeyhint="search">
-            </form>
-            <button type="button" class="nav-search-toggle" id="search-toggle"
-                    aria-label="검색 열기" aria-expanded="false" aria-controls="search">
-              <i class="fas fa-search" aria-hidden="true"></i>
-              <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-          </li>
           {% if site.social.email %}
             <li><a target="_blank" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i></a></li>
           {% endif %}
@@ -38,8 +26,6 @@
       </div>
     </nav>
 
-    {% include search.html %}
-
     <main>
       {{ content }}
     </main>
@@ -49,6 +35,5 @@
         &copy; 2026 ksthink@metaphr.dev
       </span>
     </footer>
-    <script src="{{ "/assets/search.js" | relative_url }}" defer></script>
   </body>
 </html>
