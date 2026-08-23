@@ -1,22 +1,30 @@
 // 네비게이션 안에서 가로로 펼쳐지는 검색 필드
-.nav-search {
+.nav .nav-search {
   align-items: center;
   display: inline-flex;
-  opacity: 1 !important; // 아이콘 li 의 기본 opacity(.6) 무시
+  opacity: 1; // 아이콘 li 의 기본 opacity(.6) 를 덮어쓴다
+  vertical-align: middle;
+}
 
+.nav-search {
   &-form {
+    align-items: center;
     display: inline-flex;
     margin: 0;
   }
 
   &-input {
     @include transition(width .3s ease-out, opacity .2s ease-out);
+    -webkit-appearance: none; // 크롬이 검색 필드에 시스템 폰트를 강제하는 것을 막는다
+            appearance: none;
     background: none;
     border: 0;
-    border-bottom: .15rem solid transparent;
+    border-bottom: .1rem solid transparent;
+    border-radius: 0;
     color: $default-color;
     font-family: $sans-serif;
-    font-size: .9rem;
+    font-size: .8rem;
+    line-height: 1.4;
     margin: 0;
     opacity: 0;
     outline: none;
@@ -26,24 +34,30 @@
 
     &::placeholder {
       color: $default-tint;
+      font-family: $sans-serif;
     }
 
-    // 브라우저 기본 검색 지우기 버튼 제거 (자체 토글 버튼 사용)
-    &::-webkit-search-cancel-button {
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
       -webkit-appearance: none;
     }
   }
 
   &-toggle {
     @include transition(opacity .2s ease-out);
+    align-items: center;
     background: none;
     border: 0;
     color: $default-color;
     cursor: pointer;
-    font-size: 1.3rem;
+    display: inline-flex;
+    font-size: 1.1rem;
+    height: 1.4rem;
+    justify-content: center;
     line-height: 1;
     opacity: .6;
     padding: 0;
+    width: 1.4rem;
 
     &:hover,
     &:focus {
@@ -58,12 +72,12 @@
   &.is-open {
     .nav-search-input {
       border-bottom-color: $default-shade;
-      margin-right: .8rem;
+      margin-right: .5rem;
       max-width: 60vw;
       opacity: 1;
-      padding: .3rem 0;
+      padding: .25rem 0;
       visibility: visible;
-      width: 12rem;
+      width: 11rem;
     }
 
     .fa-search {
@@ -87,8 +101,10 @@
   @include transition(max-height .3s ease-out);
 
   &.is-open {
+    border-bottom: .1rem solid $default-shade; // 아래쪽 일반 글 목록과 구분
     max-height: 80vh;
     overflow-y: auto;
+    padding-bottom: .5rem;
   }
 
   &-status {
@@ -100,7 +116,7 @@
 
   &-results {
     list-style: none;
-    margin: .5rem 0 1.5rem;
+    margin: .5rem 0 0;
     padding: 0;
 
     li {
@@ -151,6 +167,6 @@
 // 모바일에서는 제목 아래 줄에 놓이므로 폭을 화면에 맞춘다
 @media (max-width: 599px) {
   .nav-search.is-open .nav-search-input {
-    width: 55vw;
+    width: 50vw;
   }
 }
