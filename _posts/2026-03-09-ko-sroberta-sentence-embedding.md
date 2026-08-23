@@ -2,7 +2,9 @@
 layout: post
 title: "ko-sroberta-multitask: NLI와 STS로 파인튜닝한 한국어 문장 임베딩"
 date: 2026-03-09
+slug: ko-sroberta-sentence-embedding
 tags: [ko-sroberta, 문장임베딩, STS, NLI, RoBERTa, 한국어NLP, HuggingFace]
+published: true
 ---
 
 한국어 문장 임베딩 오픈소스 모델 중 실무에서 가장 널리 쓰이는 것 중 하나가 **jhgan/ko-sroberta-multitask**다. KLUE-RoBERTa를 백본으로 사용해 STS(Semantic Textual Similarity)와 NLI(Natural Language Inference) 데이터를 동시에 학습한 멀티태스크 모델이다.

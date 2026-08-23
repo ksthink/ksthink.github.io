@@ -2,7 +2,9 @@
 layout: post
 title: "BGE-M3: 단일 모델로 Dense·Sparse·ColBERT 검색을 모두 지원하는 다국어 임베딩"
 date: 2026-04-21
+slug: bge-m3-hybrid-retrieval
 tags: [BGE-M3, BAAI, 다국어임베딩, 하이브리드검색, Dense검색, Sparse검색, ColBERT, 한국어NLP]
+published: true
 ---
 
 임베딩 기반 검색에는 크게 두 가지 패러다임이 있다. 밀집 벡터(Dense)를 이용한 시맨틱 검색과, BM25 같은 희소 벡터(Sparse)를 이용한 키워드 검색이다. 각각 장단점이 있어 실무에서는 두 방식을 혼합하는 하이브리드 검색이 자주 쓰인다. **BAAI/bge-m3**는 하나의 모델로 세 가지 검색 방식을 모두 지원하는 이례적인 모델이다.

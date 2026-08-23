@@ -2,7 +2,9 @@
 layout: post
 title: "KoBERT, KLUE-BERT, KoELECTRA: 한국어 사전학습 모델 비교"
 date: 2025-11-03
+slug: korean-pretrained-models
 tags: [KoBERT, KLUE, KoELECTRA, 사전학습모델, 한국어NLP, BERT]
+published: true
 ---
 
 2018년 Google의 BERT 공개 이후 한국어 NLP 생태계에도 다양한 사전학습 언어 모델이 등장했다. 이 글에서는 실무에서 가장 자주 쓰이는 세 가지 모델을 비교한다.

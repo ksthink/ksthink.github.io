@@ -2,7 +2,9 @@
 layout: post
 title: "Google Colab CLI, 헤드리스 서버에서 인증하기"
 date: 2026-06-16
+slug: google-colab-cli-headless-auth
 tags: [Colab, CLI, OAuth, SSH, 헤드리스, 인증, Python, Google]
+published: true
 ---
 
 Google Colab CLI(`google-colab-cli`)는 브라우저 없이 터미널에서 Colab VM을 다루는 도구다. CPU·GPU·TPU 런타임을 프로비저닝하고, 코드를 실행하고, 파일을 주고받고, 자동화 파이프라인을 구성할 수 있다. 그런데 이 도구를 브라우저가 없는 원격 서버에서 처음 실행하면 인증 단계에서 막힌다. 이 글은 그 과정에서 마주친 오류들과 해결책을 정리한 것이다.

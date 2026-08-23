@@ -1,0 +1,75 @@
+# Pages CMS 설정 — https://pagescms.org
+#
+# app.pagescms.org 에서 이 저장소를 열면 아래 정의대로 편집 화면이 만들어지고,
+# 저장하면 _posts/ 에 커밋된다. 커밋되면 GitHub Pages 가 Jekyll 로 다시 빌드한다.
+# 중간 빌드 스크립트가 필요 없다 — Jekyll 이 _posts/ 를 직접 읽는다.
+#
+# 주의: 파일 이름이 곧 글 주소다(_config.yml 의 permalink 는 /:year-:month-:day/:title).
+# 파일 이름은 아래 filename 규칙대로 「날짜 + 슬러그」로 만들어지므로,
+# 이미 올린 글의 날짜나 슬러그를 고치면 주소가 바뀌어 기존 링크가 깨진다.
+
+media:
+  input: images
+  output: /images
+  categories: [image]
+
+content:
+  - name: posts
+    label: 글
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: '{year}-{month}-{day}-{fields.slug}.md'
+    view:
+      fields: [title, date, published]
+      primary: title
+      sort: [date, title]
+      search: [title, slug, tags]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+
+      - name: date
+        label: 발행일
+        type: date
+        required: true
+        options:
+          time: false
+          format: 'yyyy-MM-dd'
+        description: '파일 이름과 주소에 함께 쓰인다. 이미 올린 글은 고치지 말 것 — 주소가 바뀐다.'
+
+      - name: slug
+        label: 주소(슬러그)
+        type: string
+        required: true
+        pattern: '^[a-z0-9-]+$'
+        description: '주소의 뒷부분이 된다. 영문 소문자·숫자·하이픈만. 제목을 옮기지 말고 짧은 영문으로 짓는 편이 낫다. 이미 올린 글은 고치지 말 것 — 주소가 바뀐다.'
+
+      - name: tags
+        label: 태그
+        type: string
+        list: true
+        description: '자유롭게 적는다. 기존 태그와 표기를 맞춰야 같은 태그로 묶인다.'
+
+      - name: published
+        label: 공개
+        type: boolean
+        default: true
+        description: '끄면 빌드에서 빠져 사이트에 나오지 않는다. 초안은 이 상태로 두면 된다.'
+
+      - name: body
+        label: 본문
+        type: rich-text
+
+      # Jekyll 이 어떤 레이아웃으로 그릴지 정하는 값. 글은 항상 post 다.
+      - name: layout
+        label: 레이아웃
+        type: string
+        default: post
+        required: true
+        description: '건드릴 일이 없다. post 그대로 둔다.'

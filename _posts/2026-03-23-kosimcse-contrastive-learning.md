@@ -2,7 +2,9 @@
 layout: post
 title: "KoSimCSE 심화: 드롭아웃 기반 대조 학습으로 한국어 임베딩 만들기"
 date: 2026-03-23
+slug: kosimcse-contrastive-learning
 tags: [KoSimCSE, SimCSE, 대조학습, 문장임베딩, RoBERTa, 한국어NLP, 비지도학습]
+published: true
 ---
 
 지난 글에서 RAG 파이프라인의 맥락으로 KoSimCSE를 간략히 소개했다. 이 글에서는 KoSimCSE의 학습 방법론을 더 깊이 파고들고, 모델 변형 간 차이와 실전 파인튜닝 방법까지 다룬다.

@@ -2,7 +2,9 @@
 layout: post
 title: "multilingual-e5: 명령어 기반 다국어 임베딩 모델로 한국어 처리하기"
 date: 2026-04-06
+slug: multilingual-e5-korean
 tags: [multilingual-e5, 다국어임베딩, intfloat, E5, 한국어NLP, 시맨틱검색, MTEB]
+published: true
 ---
 
 한국어 전용 임베딩 모델이 아니면서도 한국어 검색·유사도 태스크에서 뛰어난 성능을 보이는 모델이 있다. Microsoft Research에서 공개한 **multilingual-e5** 시리즈다. MTEB(Massive Text Embedding Benchmark) 한국어 태스크에서 일관되게 상위권을 유지하며, 한국어와 다른 언어를 동시에 처리해야 하는 다국어 파이프라인에서 특히 강점을 발휘한다.

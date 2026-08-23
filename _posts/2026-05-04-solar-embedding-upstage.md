@@ -2,7 +2,9 @@
 layout: post
 title: "Solar Embedding: Upstage가 공개한 한국어 특화 임베딩 모델"
 date: 2026-05-04
+slug: solar-embedding-upstage
 tags: [Solar, Upstage, 한국어임베딩, 문장임베딩, MTEB, LLM기반임베딩, 한국어NLP]
+published: true
 ---
 
 국내 AI 스타트업 Upstage는 Solar LLM 시리즈로 널리 알려져 있지만, 임베딩 분야에서도 주목할 만한 오픈소스 모델을 공개했다. **solar-embedding-1-large**는 한국어와 영어 모두에서 높은 성능을 보이며, HuggingFace에 오픈소스로 공개되어 있다.

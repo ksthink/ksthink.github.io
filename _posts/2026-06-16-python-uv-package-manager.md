@@ -2,7 +2,9 @@
 layout: post
 title: "uv: Rust로 만든 초고속 Python 패키지 매니저 완벽 가이드"
 date: 2026-06-16
+slug: python-uv-package-manager
 tags: [Python, uv, 패키지매니저, Rust, 개발환경, Astral]
+published: true
 ---
 
 Python 생태계에서 패키지 관리는 오랜 숙제였다. `pip`, `virtualenv`, `pyenv`, `poetry`, `pipx`… 도구가 너무 많고 역할이 분산되어 있어 입문자는 물론 숙련자도 혼란을 겪는다. **uv**는 이 모든 문제를 하나의 도구로 해결하려는 시도다.

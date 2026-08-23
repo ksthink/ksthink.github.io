@@ -2,7 +2,9 @@
 layout: post
 title: "한국어 임베딩의 기초: 형태소 분석부터 Word2Vec까지"
 date: 2025-09-15
+slug: korean-embedding-basics
 tags: [한국어NLP, 임베딩, Word2Vec, 형태소분석, 자연어처리]
+published: true
 ---
 
 자연어처리(NLP)에서 텍스트를 벡터로 변환하는 과정을 **임베딩(Embedding)**이라고 한다. 영어와 달리 한국어는 교착어(agglutinative language)의 특성을 가지기 때문에, 임베딩 전에 반드시 형태소 분석 단계가 필요하다.

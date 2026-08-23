@@ -2,7 +2,9 @@
 layout: post
 title: "KURE: 한국어 검색에 최적화된 고려대 오픈소스 임베딩 모델"
 date: 2026-05-18
+slug: kure-korean-retrieval-embedding
 tags: [KURE, 한국어임베딩, 검색특화, 고려대, RAG, 한국어NLP, 오픈소스, MTEB]
+published: true
 ---
 
 지금까지 소개한 모델들이 범용 문장 임베딩이나 다국어 임베딩에 초점을 맞췄다면, **KURE(KoRean Understanding Retrieval Embeddings)**는 처음부터 **한국어 정보 검색(IR)** 에 목적을 두고 개발된 모델이다. 고려대학교 NLP 연구팀이 개발하고 HuggingFace에 공개했으며, 한국어 검색 특화 벤치마크에서 두드러진 성능을 보인다.

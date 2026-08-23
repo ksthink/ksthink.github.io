@@ -2,7 +2,9 @@
 layout: post
 title: "한국어 문장 임베딩과 RAG: KoSimCSE부터 실전 검색까지"
 date: 2026-02-20
+slug: korean-sentence-embedding-rag
 tags: [문장임베딩, RAG, KoSimCSE, 시맨틱검색, 벡터DB, 한국어NLP]
+published: true
 ---
 
 단어 임베딩이 개별 단어의 의미를 벡터로 표현한다면, **문장 임베딩(Sentence Embedding)**은 문장 전체의 의미를 하나의 벡터로 압축한다. 최근 RAG(Retrieval-Augmented Generation) 아키텍처가 확산되면서 고품질 한국어 문장 임베딩의 중요성이 더욱 커졌다.
