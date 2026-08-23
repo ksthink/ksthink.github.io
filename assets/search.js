@@ -1,13 +1,13 @@
 (function () {
-  var root = document.getElementById('search');
+  var panel = document.getElementById('search');
+  var field = document.getElementById('nav-search');
   var toggle = document.getElementById('search-toggle');
-  if (!root || !toggle) return;
+  if (!panel || !field || !toggle) return;
 
   var input = document.getElementById('search-input');
-  var closeBtn = document.getElementById('search-close');
   var status = document.getElementById('search-status');
   var list = document.getElementById('search-results');
-  var indexUrl = root.getAttribute('data-index') || '/search.json';
+  var indexUrl = panel.getAttribute('data-index') || '/search.json';
 
   var posts = null;
   var loading = null;
@@ -64,8 +64,11 @@
 
     if (!terms.length) {
       status.textContent = '';
+      panel.classList.remove('is-open');
       return;
     }
+
+    panel.classList.add('is-open');
 
     var hits = posts.filter(function (post) {
       var haystack = (post.title + ' ' + post.content).toLowerCase();
@@ -98,15 +101,18 @@
   }
 
   function open() {
-    root.classList.add('is-open');
+    field.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', '검색 닫기');
     load();
     input.focus();
   }
 
   function close() {
-    root.classList.remove('is-open');
+    field.classList.remove('is-open');
+    panel.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', '검색 열기');
     input.value = '';
     list.innerHTML = '';
     status.textContent = '';
@@ -114,10 +120,8 @@
   }
 
   toggle.addEventListener('click', function () {
-    if (root.classList.contains('is-open')) close(); else open();
+    if (field.classList.contains('is-open')) close(); else open();
   });
-
-  closeBtn.addEventListener('click', close);
 
   input.addEventListener('input', function () {
     clearTimeout(timer);
@@ -125,6 +129,6 @@
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && root.classList.contains('is-open')) close();
+    if (e.key === 'Escape' && field.classList.contains('is-open')) close();
   });
 })();

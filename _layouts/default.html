@@ -10,10 +10,14 @@
           <h2 class="nav-title">{{ site.title }}</h2>
         </a>
         <ul class="nav-social-icons">
-          <li>
+          <li class="nav-search" id="nav-search">
+            <input type="search" id="search-input" class="nav-search-input"
+                   placeholder="제목·본문 검색" aria-label="검색어"
+                   autocomplete="off" spellcheck="false">
             <button type="button" class="nav-search-toggle" id="search-toggle"
                     aria-label="검색 열기" aria-expanded="false" aria-controls="search">
-              <i class="fas fa-search"></i>
+              <i class="fas fa-search" aria-hidden="true"></i>
+              <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </li>
           {% if site.social.email %}
