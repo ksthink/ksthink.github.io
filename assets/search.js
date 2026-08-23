@@ -2,16 +2,16 @@
   var panel = document.getElementById('search');
   var field = document.getElementById('nav-search');
   var toggle = document.getElementById('search-toggle');
-  if (!panel || !field || !toggle) return;
-
+  var form = document.getElementById('search-form');
   var input = document.getElementById('search-input');
+  if (!panel || !field || !toggle || !form || !input) return;
+
   var status = document.getElementById('search-status');
   var list = document.getElementById('search-results');
   var indexUrl = panel.getAttribute('data-index') || '/search.json';
 
   var posts = null;
   var loading = null;
-  var timer = null;
 
   function escapeHtml(str) {
     return str.replace(/[&<>"']/g, function (c) {
@@ -27,8 +27,8 @@
       .then(function (data) { posts = data; return posts; })
       .catch(function () {
         loading = null;
-        status.textContent = '검색 색인을 불러오지 못했습니다.';
-        return [];
+        posts = null;
+        return null;
       });
     return loading;
   }
@@ -97,7 +97,16 @@
       render('');
       return;
     }
-    load().then(function () { render(query); });
+    if (!posts) status.textContent = '검색 중…';
+    panel.classList.add('is-open');
+    load().then(function (data) {
+      if (!data) {
+        list.innerHTML = '';
+        status.textContent = '검색 색인을 불러오지 못했습니다.';
+        return;
+      }
+      render(query);
+    });
   }
 
   function open() {
@@ -123,9 +132,14 @@
     if (field.classList.contains('is-open')) close(); else open();
   });
 
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    search();
+  });
+
+  // 입력을 모두 지우면 결과도 함께 접는다 (검색은 Enter 로만 실행)
   input.addEventListener('input', function () {
-    clearTimeout(timer);
-    timer = setTimeout(search, 150);
+    if (!input.value.trim()) render('');
   });
 
   document.addEventListener('keydown', function (e) {

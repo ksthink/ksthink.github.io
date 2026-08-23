@@ -4,6 +4,11 @@
   display: inline-flex;
   opacity: 1 !important; // 아이콘 li 의 기본 opacity(.6) 무시
 
+  &-form {
+    display: inline-flex;
+    margin: 0;
+  }
+
   &-input {
     @include transition(width .3s ease-out, opacity .2s ease-out);
     background: none;
