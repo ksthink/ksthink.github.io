@@ -4,7 +4,7 @@ title: "백 개 중 열아홉: 바이브 코딩 100 스타트업 챌린지 중�
 date: 2026-10-06
 slug: vibe-coding-100-startups-retrospective
 tags: [바이브코딩, AI, 회고, 사이드프로젝트, 코딩에이전트, GitHub]
-published: false
+published: true
 ---
 
 깃허브 자기소개에 "100 Startups Challenge via Vibe Coding"이라고 적어 두었다. 바이브 코딩으로 서비스 백 개를 만들어 보겠다는 문장이다. 2026년 3월 10일 첫 저장소를 만들고 일곱 달이 지난 지금, 포크를 빼고 직접 만든 공개 저장소는 19개, 기본 브랜치에 쌓인 커밋은 752개다. 백 개에는 한참 모자란다. 그래도 숫자보다 기록이 먼저 말해 주는 것이 있어서, 저장소를 하나씩 다시 열어 보며 중간 점검을 해 본다.
