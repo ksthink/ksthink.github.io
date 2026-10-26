@@ -1,0 +1,91 @@
+{{ define "main" }}
+<div class="container-xxl px-md-4 pb-4 pt-5 mt-3">
+    <div class="row flex-xl-nowrap">
+        <!-- Left sidebar navigation -->
+        <aside class="docs-sidebar col-xl-2 d-xl-flex align-items-start">
+            <nav class="docs-sidebar-menu navbar navbar-expand-lg navbar-light px-0 pt-2 sticky-top">
+                <div class="container-fluid flex-column px-0">
+                    <h5 class="mb-3">{{ .Site.Title }}</h5>
+                    
+                    <!-- GeekNews Daily 포스트 -->
+                    <div class="mb-4">
+                        <h6 class="text-muted small">GeekNews Daily</h6>
+                        <ul class="list-unstyled small">
+                            {{ range (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+                                {{ if in .Title "GeekNews" }}
+                                    <li class="mb-1">
+                                        <a href="{{ .RelPermalink }}" {{ if eq .RelPermalink $.RelPermalink }}class="active"{{ end }}>
+                                            {{ .Date.Format "2006-01-02" }}
+                                        </a>
+                                    </li>
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </div>
+                    
+                    <!-- 기타 포스트 -->
+                    <div class="mb-4">
+                        <h6 class="text-muted small">기술 포스트</h6>
+                        <ul class="list-unstyled small">
+                            {{ range (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+                                {{ if not (in .Title "GeekNews") }}
+                                    <li class="mb-2">
+                                        <a href="{{ .RelPermalink }}" {{ if eq .RelPermalink $.RelPermalink }}class="active"{{ end }}>
+                                            {{ .Title }}
+                                        </a>
+                                        <div class="text-muted" style="font-size: 0.75rem;">{{ .Date.Format "2006-01-02" }}</div>
+                                    </li>
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="docs-content col-xl-8 col-lg-9 col-md-8 px-md-5 px-sm-2 px-0">
+            <article>
+                <!-- Post header -->
+                <header class="mb-4">
+                    <h1 class="docs-title mb-3">{{ .Title }}</h1>
+                    <div class="docs-subtitle text-muted mb-3">
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006년 1월 2일" }}</time>
+                        {{ if .Params.tags }}
+                            <span class="ms-3">
+                                {{ range .Params.tags }}
+                                    <span class="badge bg-secondary me-1">{{ . }}</span>
+                                {{ end }}
+                            </span>
+                        {{ end }}
+                    </div>
+                </header>
+
+                <!-- Post content -->
+                <div class="docs-body">
+                    {{ .Content }}
+                </div>
+
+                <!-- Git info (if available) -->
+                {{ if and .GitInfo .Site.Params.docs.repoURL }}
+                    {{ partial "docs/gitinfo" . }}
+                {{ end }}
+            </article>
+        </main>
+
+        <!-- Right TOC sidebar -->
+        {{ if .Site.Params.docs.toc | default true }}
+        <aside class="docs-toc col-xl-2 d-xl-flex align-items-start">
+            <nav class="docs-toc-menu navbar navbar-light px-0 pt-2 sticky-top" id="TableOfContents">
+                {{ if .TableOfContents }}
+                <div class="container-fluid flex-column px-0">
+                    <h6 class="mb-3">목차</h6>
+                    {{ .TableOfContents }}
+                </div>
+                {{ end }}
+            </nav>
+        </aside>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

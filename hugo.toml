@@ -1,0 +1,78 @@
+baseURL = 'https://blog.metaphr.dev/'
+languageCode = 'ko-kr'
+title = 'metaphr.dev'
+contentDir = 'content'
+enableEmoji = true
+enableGitInfo = false
+
+defaultContentLanguage = 'ko'
+
+# Permalinks 설정 - Jekyll과 동일한 URL 패턴 유지
+[permalinks]
+  posts = '/:year-:month-:day/:slug/'
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.140.0"
+  [[module.imports]]
+    path = "github.com/colinwilson/lotusdocs"
+    disable = false
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+    disable = false
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 1
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = false
+
+[params]
+  google_fonts = [
+    ["JetBrains Mono", "400,500,700"]
+  ]
+
+  sans_serif_font = "'Moneygraphy Pixel', -apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+  secondary_font  = "'Moneygraphy Pixel', -apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+  mono_font       = "'JetBrains Mono', 'Fira Code', monospace"
+
+  [params.footer]
+    copyright = "© :YEAR: metaphr.dev"
+
+  [params.social]
+    github = ""
+    email = "ksthink@metaphr.dev"
+
+  [params.docs]
+    title = "metaphr.dev"
+    darkMode = true
+    prism = true
+    prismTheme = "solarized-light"
+    
+    sidebarIcons = false
+    breadcrumbs = true
+    backToTop = true
+    
+    toc = true
+    tocMobile = true
+    scrollSpy = true
+    
+    descriptions = true
+    titleIcon = false
+
+  [params.flexsearch]
+    enabled = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
