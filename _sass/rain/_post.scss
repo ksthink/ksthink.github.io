@@ -14,7 +14,7 @@
 
   &-title {
     color: $default-shade;
-    font-family: $sans-serif;
+    font-family: $display-font;
     font-size: 2rem;
     margin: 0 0 1rem 0;
     text-align: center;
@@ -29,7 +29,7 @@
 
   p {
     margin: 0 0 1rem;
-    text-align: justify;
+    text-align: left;
   }
 
   a:hover {

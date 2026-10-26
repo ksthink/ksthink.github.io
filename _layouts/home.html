@@ -11,7 +11,9 @@ layout: default
         <div class="catalogue-line"></div>
 
         <p>
-          {{ post.content | strip_html | truncatewords: 65 }}
+          {% assign content = post.content | strip_html %}
+          {% assign toc_start = content | split: '## 목차' | first %}
+          {{ toc_start | strip | truncatewords: 65 }}
         </p>
 
       </div>

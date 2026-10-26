@@ -11,9 +11,13 @@ $blue: #4a9ae1;
 $shadow-color: rgba(0, 0, 0, .2);
 $code-color: #bf616a;
 
+$code-bg: #2b2b2b;
+$code-text: #e8e8e8;
+
 // Fonts
-$sans-serif: 'Galmuri11', monospace;
-$monospaced: 'Galmuri11', monospace;
+$display-font: 'Galmuri11', monospace;
+$sans-serif: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif;
+$monospaced: 'JetBrains Mono', 'D2Coding', 'ui-monospace', 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
 @mixin box-sizing($type: border-box) {
   -webkit-box-sizing: $type;
