@@ -55,15 +55,16 @@
   function update() {
     if (locked) return;
     // The section being read is the last heading that has scrolled near the top.
+    // Short final sections can never reach the top, so over the last screen of
+    // scrolling the line slides down to the viewport bottom, passing each of them.
+    var vh = window.innerHeight;
+    var remaining = document.documentElement.scrollHeight - vh - window.scrollY;
     var line = 100;
+    if (remaining < vh) line += (vh - line) * (1 - Math.max(remaining, 0) / vh);
     var active = -1;
     for (var i = 0; i < headings.length; i++) {
       if (headings[i].getBoundingClientRect().top <= line) active = i;
       else break;
-    }
-    // At the bottom of the page, the final sections may never reach the line.
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
-      active = headings.length - 1;
     }
     setActive(active);
   }
