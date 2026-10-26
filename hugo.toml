@@ -1,0 +1,47 @@
+baseURL = 'https://blog.metaphr.dev/'
+languageCode = 'ko-kr'
+title = 'metaphr.dev'
+theme = 'PaperMod'
+
+# Permalinks 설정 - Jekyll과 동일한 URL 패턴 유지
+[permalinks]
+  posts = '/:year-:month-:day/:slug/'
+
+[params]
+  description = "언어와 언어를 연결합니다."
+  author = "park"
+  
+  # PaperMod 설정
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = false
+  ShowToc = true
+  TocOpen = false
+  
+  # 폰트와 색상은 extended CSS로 커스터마이징
+  
+  [params.homeInfoParams]
+    Title = "metaphr.dev"
+    Content = "언어와 언어를 연결합니다."
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:ksthink@metaphr.dev"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = false
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

@@ -1,0 +1,166 @@
+/* 폰트 임포트 */
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/Galmuri11/Galmuri11.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* 루트 변수 오버라이드 - Jekyll 블로그 색상 복원 */
+:root {
+    /* 배경 및 기본 색상 */
+    --theme: #F7F2E9;
+    --entry: #F7F2E9;
+    --primary: #3A3A38;
+    --secondary: #3A3A38;
+    --tertiary: #e8e3d8;
+    --content: #3A3A38;
+    --hljs-bg: #2b2b2b;
+    --code-bg: #e8e3d8;
+    --border: #979797;
+    
+    /* 링크 색상 */
+    --link: #4a9ae1;
+}
+
+/* 다크모드 비활성화 - Jekyll 블로그는 라이트 테마만 사용 */
+.dark {
+    --theme: #F7F2E9;
+    --entry: #F7F2E9;
+    --primary: #3A3A38;
+    --secondary: #3A3A38;
+    --tertiary: #e8e3d8;
+    --content: #3A3A38;
+    --hljs-bg: #2b2b2b;
+    --code-bg: #e8e3d8;
+    --border: #979797;
+}
+
+/* 폰트 적용 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif;
+    background-color: #F7F2E9;
+    color: #3A3A38;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Galmuri11', monospace;
+    font-weight: bold;
+}
+
+code, pre, .hljs {
+    font-family: 'JetBrains Mono', 'D2Coding', 'ui-monospace', 'SFMono-Regular', monospace;
+}
+
+/* 인라인 코드 스타일 */
+:not(pre) > code {
+    background-color: #e8e3d8;
+    color: #c7254e;
+    border-radius: 3px;
+    padding: 0.25em 0.5em;
+    font-size: 85%;
+    font-weight: 500;
+}
+
+/* 코드 블록 스타일 */
+.highlight,
+pre {
+    background-color: #2b2b2b !important;
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.highlight code,
+pre code {
+    background-color: transparent !important;
+    color: #e8e8e8;
+    padding: 0;
+}
+
+/* 링크 스타일 */
+a {
+    color: #4a9ae1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 헤더 스타일 */
+.main {
+    background-color: #F7F2E9;
+}
+
+/* 포스트 메타 정보 */
+.post-meta {
+    color: #979797;
+}
+
+/* TOC 스타일 */
+.toc {
+    background-color: #F7F2E9;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+/* 페이지네이션 스타일 */
+.page-item {
+    background-color: #F7F2E9;
+}
+
+/* 검색 버튼 숨기기 (Jekyll에는 없음) */
+#searchResults {
+    background-color: #F7F2E9;
+}
+
+/* 헤더 및 푸터 배경 */
+header, footer {
+    background-color: #F7F2E9;
+}
+
+/* 포스트 리스트 */
+.post-entry {
+    background-color: #F7F2E9;
+}
+
+/* 인라인 코드 강조 */
+p code, li code, td code {
+    background-color: #e8e3d8;
+    color: #c7254e;
+}
+
+/* Footnote 스타일 */
+.footnotes {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e5e5;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.footnotes ol {
+    padding-left: 1.5rem;
+}
+
+.footnotes p {
+    margin: 0.5rem 0;
+}
+
+/* Footnote 참조 링크 */
+sup a.footnote-ref {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+sup a.footnote-ref:before {
+    content: "[";
+}
+
+sup a.footnote-ref:after {
+    content: "]";
+}
+
+/* Footnote 되돌아가기 링크 */
+.footnote-backref {
+    text-decoration: none;
+    font-weight: bold;
+}
