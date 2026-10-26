@@ -65,10 +65,7 @@
           </div>
           {{ if .Summary }}
           <div class="post-excerpt">
-            {{ $summary := .Summary }}
-            {{ $summary = replaceRE "(?s)## 목차.*?(?:##|$)" "" $summary }}
-            {{ $summary = replaceRE "(?s)- \\[.*?\\]\\(#.*?\\)" "" $summary }}
-            {{ $summary | truncate 200 }}
+            {{ .Plain | plainify | truncate 160 }}
           </div>
           {{ end }}
           <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary mt-2">더 읽기 →</a>
