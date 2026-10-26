@@ -24,9 +24,29 @@
   toc.hidden = false;
 
   var current = -1;
+  function setActive(i) {
+    if (i === current) return;
+    if (current >= 0) links[current].classList.remove('active');
+    if (i >= 0) links[i].classList.add('active');
+    current = i;
+  }
+
+  // After a TOC jump, keep the chosen item lit even if a short section lets the
+  // next heading into view or the page bottoms out; any user scroll releases it.
+  var locked = false;
+  function lock(i) { locked = true; setActive(i); }
+  ['wheel', 'touchmove', 'keydown', 'mousedown'].forEach(function (type) {
+    window.addEventListener(type, function () { locked = false; }, { passive: true });
+  });
+  toc.addEventListener('click', function (e) {
+    var i = links.indexOf(e.target.closest('a'));
+    if (i >= 0) lock(i);
+  });
+
   function update() {
-    // The section being read is the last heading above the top 30% of the viewport.
-    var line = window.innerHeight * 0.3;
+    if (locked) return;
+    // The section being read is the last heading that has scrolled near the top.
+    var line = 100;
     var active = -1;
     for (var i = 0; i < headings.length; i++) {
       if (headings[i].getBoundingClientRect().top <= line) active = i;
@@ -36,10 +56,7 @@
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
       active = headings.length - 1;
     }
-    if (active === current) return;
-    if (current >= 0) links[current].classList.remove('active');
-    if (active >= 0) links[active].classList.add('active');
-    current = active;
+    setActive(active);
   }
 
   var ticking = false;
@@ -50,5 +67,8 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
-  update();
+
+  var hashTarget = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (headings.indexOf(hashTarget) >= 0) lock(headings.indexOf(hashTarget));
+  else update();
 })();
