@@ -38,6 +38,15 @@
   ['wheel', 'touchmove', 'keydown', 'mousedown'].forEach(function (type) {
     window.addEventListener(type, function () { locked = false; }, { passive: true });
   });
+  function lockToHash() {
+    var target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var i = headings.indexOf(target);
+    if (i >= 0) lock(i);
+    return i >= 0;
+  }
+  // hashchange covers in-body links too (e.g. a hand-written 목차); click covers
+  // re-clicking the current item, which changes no hash.
+  window.addEventListener('hashchange', lockToHash);
   toc.addEventListener('click', function (e) {
     var i = links.indexOf(e.target.closest('a'));
     if (i >= 0) lock(i);
