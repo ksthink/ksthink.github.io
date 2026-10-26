@@ -1,0 +1,204 @@
+/* 폰트 임포트 */
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/Galmuri11/Galmuri11.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* 루트 변수 오버라이드 - Jekyll 블로그 색상 복원 */
+:root {
+    /* 배경 및 기본 색상 */
+    --bs-body-bg: #F7F2E9;
+    --bs-body-color: #3A3A38;
+    --bs-primary: #4a9ae1;
+    --bs-link-color: #4a9ae1;
+    --bs-link-hover-color: #3a8ed1;
+    --bs-border-color: #e5e5e5;
+    
+    /* 코드 색상 */
+    --bs-code-bg: #e8e3d8;
+    --bs-code-color: #c7254e;
+}
+
+/* 다크모드 색상 오버라이드 */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #2b2b2b;
+    --bs-body-color: #e8e8e8;
+    --bs-border-color: #3a3a38;
+}
+
+/* 폰트 적용 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif !important;
+    background-color: #F7F2E9;
+    color: #3A3A38;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Galmuri11', monospace !important;
+    font-weight: bold;
+}
+
+code, pre, .code, kbd, samp {
+    font-family: 'JetBrains Mono', 'D2Coding', 'ui-monospace', 'SFMono-Regular', monospace !important;
+}
+
+/* 인라인 코드 스타일 */
+:not(pre) > code {
+    background-color: #e8e3d8;
+    color: #c7254e;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+    font-weight: 500;
+}
+
+/* 코드 블록 스타일 - GitHub Dark 테마 */
+pre {
+    background-color: #2b2b2b !important;
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+pre code {
+    background-color: transparent !important;
+    color: #e8e8e8 !important;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+/* Prism.js 코드 블록 오버라이드 */
+pre[class*="language-"] {
+    background-color: #2b2b2b !important;
+    color: #e8e8e8 !important;
+}
+
+code[class*="language-"] {
+    color: #e8e8e8 !important;
+}
+
+/* 링크 스타일 */
+a {
+    color: #4a9ae1;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3a8ed1;
+    text-decoration: underline;
+}
+
+/* 메인 컨텐츠 영역 */
+.docs-content {
+    background-color: #F7F2E9;
+}
+
+/* 사이드바 */
+.docs-sidebar {
+    background-color: #F7F2E9;
+    border-right: 1px solid #e5e5e5;
+}
+
+/* 네비게이션 */
+.navbar {
+    background-color: #F7F2E9;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* TOC */
+.toc {
+    background-color: #F7F2E9;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+/* 카드 스타일 */
+.card {
+    background-color: #F7F2E9;
+    border: 1px solid #e5e5e5;
+}
+
+/* Footnote 스타일 */
+.footnotes {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e5e5;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.footnotes ol {
+    padding-left: 1.5rem;
+}
+
+.footnotes p {
+    margin: 0.5rem 0;
+}
+
+/* Footnote 참조 링크 */
+sup a.footnote-ref {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+sup a.footnote-ref:before {
+    content: "[";
+}
+
+sup a.footnote-ref:after {
+    content: "]";
+}
+
+/* Footnote 되돌아가기 링크 */
+.footnote-backref {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 포스트 리스트 스타일 */
+.post-list-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.post-list-item:last-child {
+    border-bottom: none;
+}
+
+.post-title {
+    font-family: 'Galmuri11', monospace;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta {
+    color: #979797;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    color: #3A3A38;
+}
+
+/* 다크모드에서는 라이트 배경 유지 (Jekyll 블로그 스타일) */
+[data-bs-theme="dark"] body {
+    background-color: #F7F2E9;
+    color: #3A3A38;
+}
+
+[data-bs-theme="dark"] .docs-content,
+[data-bs-theme="dark"] .docs-sidebar,
+[data-bs-theme="dark"] .navbar,
+[data-bs-theme="dark"] .card {
+    background-color: #F7F2E9;
+    color: #3A3A38;
+}
+
+/* 코드 블록은 다크모드에서도 다크 유지 */
+[data-bs-theme="dark"] pre,
+[data-bs-theme="dark"] pre[class*="language-"] {
+    background-color: #2b2b2b !important;
+    color: #e8e8e8 !important;
+}

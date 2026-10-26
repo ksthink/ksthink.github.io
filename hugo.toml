@@ -1,40 +1,32 @@
 baseURL = 'https://blog.metaphr.dev/'
 languageCode = 'ko-kr'
 title = 'metaphr.dev'
-theme = 'PaperMod'
+contentDir = 'content'
+enableEmoji = true
+enableGitInfo = false
+
+defaultContentLanguage = 'ko'
 
 # Permalinks 설정 - Jekyll과 동일한 URL 패턴 유지
 [permalinks]
   posts = '/:year-:month-:day/:slug/'
 
-[params]
-  description = "언어와 언어를 연결합니다."
-  author = "park"
-  
-  # PaperMod 설정
-  ShowReadingTime = true
-  ShowShareButtons = false
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowRssButtonInSectionTermList = false
-  ShowToc = true
-  TocOpen = false
-  
-  # 폰트와 색상은 extended CSS로 커스터마이징
-  
-  [params.homeInfoParams]
-    Title = "metaphr.dev"
-    Content = "언어와 언어를 연결합니다."
-
-[[params.socialIcons]]
-  name = "email"
-  url = "mailto:ksthink@metaphr.dev"
-
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.140.0"
+  [[module.imports]]
+    path = "github.com/colinwilson/lotusdocs"
+    disable = false
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+    disable = false
 
 [markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 1
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
@@ -42,6 +34,46 @@ theme = 'PaperMod'
     style = "github-dark"
     lineNos = false
 
+[params]
+  google_fonts = [
+    ["Inter", "300, 400, 600, 700"],
+    ["Fira Code", "500, 700"]
+  ]
+
+  sans_serif_font = "Inter"
+  secondary_font  = "Inter"
+  mono_font       = "Fira Code"
+
+  [params.footer]
+    copyright = "© :YEAR: metaphr.dev"
+
+  [params.social]
+    github = ""
+    email = "ksthink@metaphr.dev"
+
+  [params.docs]
+    title = "metaphr.dev"
+    darkMode = true
+    prism = true
+    prismTheme = "solarized-light"
+    
+    sidebarIcons = false
+    breadcrumbs = true
+    backToTop = true
+    
+    toc = true
+    tocMobile = true
+    scrollSpy = true
+    
+    descriptions = true
+    titleIcon = false
+
+  [params.flexsearch]
+    enabled = true
+
 [taxonomies]
   tag = "tags"
   category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

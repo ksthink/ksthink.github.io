@@ -5,3 +5,5 @@ _site/
 Gemfile.lock
 public/
 .hugo_build.lock
+resources/
+resources/
