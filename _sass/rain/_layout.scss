@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 680px;
   width: 80%;
 }
 
@@ -9,7 +9,7 @@ footer,
 .nav-container {
   display: block;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 680px;
   width: 80%;
 }
 
@@ -29,6 +29,7 @@ footer,
     display: inline-block;
     margin: 0;
     padding-right: .2rem;
+    font-family: $display-font;
 
     &:hover,
     &:focus {
@@ -71,6 +72,36 @@ footer,
   a {
     color: $default-color;
     font-family: $sans-serif;
+    font-weight: 500;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  
+  &-links {
+    display: inline-block;
+    margin-left: 2rem;
+    
+    a {
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    @media (max-width: 599px) {
+      display: block;
+      margin-left: 0;
+      margin-top: 0.5rem;
+      
+      a {
+        margin-left: 0;
+        margin-right: 1.5rem;
+      }
+    }
   }
 }
 
