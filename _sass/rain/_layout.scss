@@ -15,106 +15,29 @@ footer,
 
 .nav {
   box-shadow: 0 2px 2px -2px $shadow-color;
-  overflow: auto;
 
   &-container {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
     margin: 1rem auto;
-    position: relative;
-    text-align: center;
   }
 
   &-title {
     @include transition(all .2s ease-out);
     color: $default-color;
-    display: inline-block;
-    margin: 0;
-    padding-right: .2rem;
     font-family: $display-font;
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
 
     &:hover,
     &:focus {
       opacity: .6;
     }
-  }
 
-  &-social-icons {
-    font-size: 1.3rem;
-
-    .fa, .fas, .fab {
-      vertical-align: center;
-    }
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 1rem 0 0;
-    padding: 0;
-    text-align: center;
-  }
-
-  li {
-    @include transition(all .2s ease-out);
-    color: $default-color;
-    display: inline-block;
-    opacity: .6;
-    padding: 0 2rem 0 0;
-
-    &:last-child {
-      padding-right: 0;
-    }
-
-    &:hover,
-    &:focus {
-      opacity: 1;
-    }
-  }
-
-  a {
-    color: $default-color;
-    font-family: $sans-serif;
-    font-weight: 500;
-    
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-  
-  &-links {
-    display: inline-block;
-    margin-left: 2rem;
-    
-    a {
-      margin-left: 1.5rem;
-      font-size: 0.95rem;
-      
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-    
     @media (max-width: 599px) {
-      display: block;
-      margin-left: 0;
-      margin-top: 0.5rem;
-      
-      a {
-        margin-left: 0;
-        margin-right: 1.5rem;
-      }
-    }
-  }
-}
-
-@media (min-width: 600px) {
-  .nav {
-    &-container {
-      text-align: left;
-    }
-
-    ul {
-      bottom: 0;
-      position: absolute;
-      right: 0;
+      font-size: 1.15rem;
     }
   }
 }
