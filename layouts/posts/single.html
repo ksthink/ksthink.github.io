@@ -1,9 +1,9 @@
 {{ define "main" }}
-<div class="container-xxl px-md-4 pb-4">
+<div class="container-xxl px-md-4 pb-4 pt-5 mt-3">
     <div class="row flex-xl-nowrap">
         <!-- Left sidebar navigation -->
-        <aside class="docs-sidebar col-xl-2 d-xl-flex">
-            <nav class="docs-sidebar-menu navbar navbar-expand-lg navbar-light px-0 pt-2">
+        <aside class="docs-sidebar col-xl-2 d-xl-flex align-items-start">
+            <nav class="docs-sidebar-menu navbar navbar-expand-lg navbar-light px-0 pt-2 sticky-top">
                 <div class="container-fluid flex-column px-0">
                     <h5 class="mb-3">{{ .Site.Title }}</h5>
                     
@@ -75,8 +75,8 @@
 
         <!-- Right TOC sidebar -->
         {{ if .Site.Params.docs.toc | default true }}
-        <aside class="docs-toc col-xl-2 d-xl-flex">
-            <nav class="docs-toc-menu navbar navbar-light px-0 pt-2" id="TableOfContents">
+        <aside class="docs-toc col-xl-2 d-xl-flex align-items-start">
+            <nav class="docs-toc-menu navbar navbar-light px-0 pt-2 sticky-top" id="TableOfContents">
                 {{ if .TableOfContents }}
                 <div class="container-fluid flex-column px-0">
                     <h6 class="mb-3">목차</h6>
