@@ -129,3 +129,63 @@ footer {
     font-size: .8rem;
   }
 }
+
+// Side table of contents on post pages; only where there is room left of the 680px column.
+.toc {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .toc {
+    display: block;
+    font-family: $sans-serif;
+    font-size: .85rem;
+    left: calc(50% - 340px - 240px);
+    max-height: calc(100vh - 12rem);
+    overflow-y: auto;
+    position: fixed;
+    top: 8rem;
+    width: 200px;
+
+    &[hidden] {
+      display: none;
+    }
+
+    ul {
+      border-left: 2px solid $grey-2;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+    }
+
+    .toc-h3 a {
+      padding-left: 1.6rem;
+    }
+
+    a {
+      @include transition(all .2s ease-out);
+      border-left: 2px solid transparent;
+      color: $default-tint;
+      display: block;
+      line-height: 1.4;
+      margin-left: -2px;
+      word-break: keep-all;
+      padding: .3rem .8rem;
+
+      &:hover {
+        color: $default-color;
+        text-decoration: none;
+      }
+
+      &.active {
+        border-left-color: $default-color;
+        color: $default-color;
+        font-weight: 700;
+      }
+    }
+  }
+}
