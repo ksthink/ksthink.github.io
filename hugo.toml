@@ -36,13 +36,12 @@ defaultContentLanguage = 'ko'
 
 [params]
   google_fonts = [
-    ["Inter", "300, 400, 600, 700"],
-    ["Fira Code", "500, 700"]
+    ["JetBrains Mono", "400,500,700"]
   ]
 
-  sans_serif_font = "Inter"
-  secondary_font  = "Inter"
-  mono_font       = "Fira Code"
+  sans_serif_font = "'Moneygraphy Pixel', -apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+  secondary_font  = "'Moneygraphy Pixel', -apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+  mono_font       = "'JetBrains Mono', 'Fira Code', monospace"
 
   [params.footer]
     copyright = "© :YEAR: metaphr.dev"
