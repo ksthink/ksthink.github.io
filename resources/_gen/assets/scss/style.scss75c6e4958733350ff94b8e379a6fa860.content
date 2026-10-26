@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Template Name: LotusLabs Docs
    Author: Colin Wilson
    E-mail: colin.wilson@proton.me
@@ -11293,7 +11292,25 @@ span.menu-icon {
   user-select: none; }
 
 /*# sourceMappingURL=image-compare-viewer.min.css.map*/
-/* 폰트 선언 - Moneygraphy Pixel (self-hosted) */
+/* =============================================================================
+   Jekyll Blog Color Palette (Exact Match)
+   ============================================================================= */
+/*
+Color Reference from main branch (_sass/rain/_variables.scss):
+- Background:      #F7F2E9
+- Text:            #3A3A38
+- Headings:        #3A3A38
+- Links/Accent:    #4a9ae1
+- Muted/Meta:      #aaa
+- Border:          #e5e5e5
+- Border-Dark:     #979797
+- Light BG:        #f9f9f9
+- Inline Code BG:  #e8e3d8
+- Inline Code:     #c7254e
+- Code Block BG:   #2b2b2b
+- Code Block Text: #e8e8e8
+*/
+/* Moneygraphy Pixel Font (self-hosted) */
 @font-face {
   font-family: 'Moneygraphy Pixel';
   src: url("/fonts/MoneygraphyPixel.eot");
@@ -11302,55 +11319,91 @@ span.menu-icon {
   font-style: normal;
   font-display: swap; }
 
-/* JetBrains Mono for code only */
-/* 루트 변수 오버라이드 - Jekyll 블로그 색상 복원 */
+/* JetBrains Mono for code */
+/* =============================================================================
+   Root Variables - Jekyll Color Palette
+   ============================================================================= */
 :root {
-  /* 배경 및 기본 색상 */
+  /* Main colors */
   --bs-body-bg: #F7F2E9;
   --bs-body-color: #3A3A38;
+  --bs-heading-color: #3A3A38;
+  /* Links & Accents - Replace Lotus blue (#4a9ae1) */
   --bs-primary: #4a9ae1;
+  --bs-primary-rgb: 74, 154, 225;
   --bs-link-color: #4a9ae1;
   --bs-link-hover-color: #3a8ed1;
+  --bs-link-color-rgb: 74, 154, 225;
+  /* Borders */
   --bs-border-color: #e5e5e5;
-  /* 코드 색상 */
+  --bs-border-color-translucent: rgba(229, 229, 229, 0.5);
+  /* Secondary/Muted */
+  --bs-secondary: #aaa;
+  --bs-secondary-rgb: 170, 170, 170;
+  --bs-secondary-color: #aaa;
+  --bs-secondary-bg: #f9f9f9;
+  /* Code colors */
   --bs-code-bg: #e8e3d8;
-  --bs-code-color: #c7254e; }
+  --bs-code-color: #c7254e;
+  /* Success, Warning, etc - use accent color */
+  --bs-success: #4a9ae1;
+  --bs-info: #4a9ae1; }
 
-/* 다크모드 색상 오버라이드 */
+/* Dark mode override - keep light theme */
 [data-bs-theme="dark"] {
-  --bs-body-bg: #2b2b2b;
-  --bs-body-color: #e8e8e8;
-  --bs-border-color: #3a3a38; }
+  --bs-body-bg: #F7F2E9;
+  --bs-body-color: #3A3A38;
+  --bs-border-color: #e5e5e5; }
 
-/* 폰트 적용 - Moneygraphy Pixel for headings and body */
+/* =============================================================================
+   Typography
+   ============================================================================= */
 body {
   font-family: 'Moneygraphy Pixel', -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
-  background-color: #F7F2E9;
-  color: #3A3A38; }
+  background-color: #F7F2E9 !important;
+  color: #3A3A38 !important; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.docs-title {
   font-family: 'Moneygraphy Pixel', monospace !important;
-  font-weight: bold; }
+  font-weight: bold !important;
+  color: #3A3A38 !important; }
 
 code, pre, .code, kbd, samp {
-  font-family: 'JetBrains Mono', 'D2Coding', 'ui-monospace', 'SFMono-Regular', monospace !important; }
+  font-family: 'JetBrains Mono', 'D2Coding', 'ui-monospace', monospace !important; }
 
-/* 인라인 코드 스타일 */
+/* =============================================================================
+   Links
+   ============================================================================= */
+a {
+  color: #4a9ae1 !important;
+  text-decoration: none; }
+
+a:hover {
+  color: #3a8ed1 !important;
+  text-decoration: underline; }
+
+/* =============================================================================
+   Code Blocks
+   ============================================================================= */
+/* Inline code */
 :not(pre) > code {
-  background-color: #e8e3d8;
-  color: #c7254e;
+  background-color: #e8e3d8 !important;
+  color: #c7254e !important;
   border-radius: 3px;
-  padding: 0.2em 0.4em;
+  padding: 0.25em 0.5em;
   font-size: 85%;
   font-weight: 500; }
 
-/* 코드 블록 스타일 - GitHub Dark 테마 */
+/* Code blocks */
 pre {
   background-color: #2b2b2b !important;
+  color: #e8e8e8 !important;
   border-radius: 4px;
   padding: 1rem;
-  overflow-x: auto; }
+  overflow-x: auto;
+  margin-bottom: 1rem; }
 
 pre code {
   background-color: transparent !important;
@@ -11358,49 +11411,161 @@ pre code {
   padding: 0;
   font-size: 0.875rem; }
 
-/* Prism.js 코드 블록 오버라이드 */
+.highlight,
 pre[class*="language-"] {
-  background-color: #2b2b2b !important;
-  color: #e8e8e8 !important; }
+  background-color: #2b2b2b !important; }
 
 code[class*="language-"] {
   color: #e8e8e8 !important; }
 
-/* 링크 스타일 */
-a {
-  color: #4a9ae1;
-  text-decoration: none; }
+/* =============================================================================
+   Layout Components
+   ============================================================================= */
+/* Header / Top bar */
+.header,
+.navbar,
+header {
+  background-color: #F7F2E9 !important;
+  border-bottom: 1px solid #e5e5e5 !important; }
 
-a:hover {
-  color: #3a8ed1;
-  text-decoration: underline; }
+/* Sidebar */
+.docs-sidebar,
+.docs-sidebar-menu {
+  background-color: #F7F2E9 !important;
+  border-right: 1px solid #e5e5e5 !important; }
 
-/* 메인 컨텐츠 영역 */
-.docs-content {
-  background-color: #F7F2E9; }
+.docs-sidebar a {
+  color: #3A3A38 !important; }
 
-/* 사이드바 */
-.docs-sidebar {
-  background-color: #F7F2E9;
-  border-right: 1px solid #e5e5e5; }
-
-/* 네비게이션 */
-.navbar {
-  background-color: #F7F2E9;
-  border-bottom: 1px solid #e5e5e5; }
+.docs-sidebar a:hover,
+.docs-sidebar a.active {
+  color: #4a9ae1 !important; }
 
 /* TOC */
+.docs-toc,
 .toc {
-  background-color: #F7F2E9;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px; }
+  background-color: #F7F2E9 !important; }
 
-/* 카드 스타일 */
+/* Main content */
+.docs-content,
+.docs-body,
+.main {
+  background-color: #F7F2E9 !important; }
+
+/* Footer */
+.footer {
+  background-color: #F7F2E9 !important;
+  border-top: 1px solid #e5e5e5 !important;
+  color: #aaa !important; }
+
+/* =============================================================================
+   UI Components
+   ============================================================================= */
+/* Buttons */
+.btn-primary {
+  background-color: #4a9ae1 !important;
+  border-color: #4a9ae1 !important;
+  color: #fff !important; }
+
+.btn-primary:hover {
+  background-color: #3a8ed1 !important;
+  border-color: #3a8ed1 !important; }
+
+.btn-outline-primary {
+  color: #4a9ae1 !important;
+  border-color: #4a9ae1 !important; }
+
+.btn-outline-primary:hover {
+  background-color: #4a9ae1 !important;
+  border-color: #4a9ae1 !important;
+  color: #fff !important; }
+
+/* Badges / Tags */
+.badge {
+  font-family: 'Moneygraphy Pixel', monospace; }
+
+.badge.bg-secondary {
+  background-color: #aaa !important;
+  color: #fff !important; }
+
+.badge.bg-primary {
+  background-color: #4a9ae1 !important; }
+
+/* Pagination */
+.pagination {
+  --bs-pagination-color: #4a9ae1;
+  --bs-pagination-hover-color: #3a8ed1;
+  --bs-pagination-focus-color: #3a8ed1;
+  --bs-pagination-active-bg: #4a9ae1;
+  --bs-pagination-active-border-color: #4a9ae1; }
+
+.page-item.active .page-link {
+  background-color: #4a9ae1 !important;
+  border-color: #4a9ae1 !important; }
+
+.page-link {
+  color: #4a9ae1 !important;
+  background-color: #F7F2E9 !important;
+  border-color: #e5e5e5 !important; }
+
+.page-link:hover {
+  color: #3a8ed1 !important;
+  background-color: #f9f9f9 !important; }
+
+/* Cards */
 .card {
-  background-color: #F7F2E9;
-  border: 1px solid #e5e5e5; }
+  background-color: #F7F2E9 !important;
+  border-color: #e5e5e5 !important; }
 
-/* Footnote 스타일 */
+/* =============================================================================
+   Tables (Jekyll Style)
+   ============================================================================= */
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  background-color: #F7F2E9; }
+
+table th,
+table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e5e5;
+  text-align: left; }
+
+table thead th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  border-bottom: 2px solid #979797;
+  color: #3A3A38; }
+
+table tbody tr:hover {
+  background-color: #f9f9f9; }
+
+/* =============================================================================
+   Post/Article Specific
+   ============================================================================= */
+/* Post header */
+.docs-subtitle,
+.post-meta {
+  color: #aaa !important;
+  font-size: 0.9rem; }
+
+/* Post excerpt */
+.post-excerpt {
+  color: #3A3A38 !important; }
+
+/* Post list items */
+.post-list-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e5e5; }
+
+.post-list-item:last-child {
+  border-bottom: none; }
+
+/* =============================================================================
+   Footnotes
+   ============================================================================= */
 .footnotes {
   margin-top: 2rem;
   padding-top: 1rem;
@@ -11414,10 +11579,10 @@ a:hover {
 .footnotes p {
   margin: 0.5rem 0; }
 
-/* Footnote 참조 링크 */
 sup a.footnote-ref {
   text-decoration: none;
-  font-weight: 500; }
+  font-weight: 500;
+  color: #4a9ae1 !important; }
 
 sup a.footnote-ref:before {
   content: "["; }
@@ -11425,49 +11590,32 @@ sup a.footnote-ref:before {
 sup a.footnote-ref:after {
   content: "]"; }
 
-/* Footnote 되돌아가기 링크 */
 .footnote-backref {
   text-decoration: none;
-  font-weight: bold; }
-
-/* 포스트 리스트 스타일 */
-.post-list-item {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #e5e5e5; }
-
-.post-list-item:last-child {
-  border-bottom: none; }
-
-.post-title {
-  font-family: 'Galmuri11', monospace;
   font-weight: bold;
-  margin-bottom: 0.5rem; }
+  color: #4a9ae1 !important; }
 
-.post-meta {
-  color: #979797;
-  font-size: 0.9rem;
-  margin-bottom: 1rem; }
+/* =============================================================================
+   Miscellaneous
+   ============================================================================= */
+/* Text muted */
+.text-muted {
+  color: #aaa !important; }
 
-.post-excerpt {
-  color: #3A3A38; }
+/* Borders */
+.border,
+hr {
+  border-color: #e5e5e5 !important; }
 
-/* 다크모드에서는 라이트 배경 유지 (Jekyll 블로그 스타일) */
-[data-bs-theme="dark"] body {
-  background-color: #F7F2E9;
-  color: #3A3A38; }
+/* Search */
+#searchResults {
+  background-color: #F7F2E9 !important;
+  border: 1px solid #e5e5e5 !important; }
 
-[data-bs-theme="dark"] .docs-content,
-[data-bs-theme="dark"] .docs-sidebar,
-[data-bs-theme="dark"] .navbar,
-[data-bs-theme="dark"] .card {
-  background-color: #F7F2E9;
-  color: #3A3A38; }
-
-/* 코드 블록은 다크모드에서도 다크 유지 */
-[data-bs-theme="dark"] pre,
-[data-bs-theme="dark"] pre[class*="language-"] {
-  background-color: #2b2b2b !important;
-  color: #e8e8e8 !important; }
+/* Alerts */
+.alert-info {
+  background-color: rgba(74, 154, 225, 0.1) !important;
+  border-color: #4a9ae1 !important;
+  color: #3A3A38 !important; }
 
 /*# sourceMappingURL=style.css.map */
