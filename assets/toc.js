@@ -77,7 +77,5 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
 
-  var hashTarget = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-  if (headings.indexOf(hashTarget) >= 0) lock(headings.indexOf(hashTarget));
-  else update();
+  if (!lockToHash()) update();
 })();
