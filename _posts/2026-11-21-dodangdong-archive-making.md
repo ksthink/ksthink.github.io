@@ -11,7 +11,7 @@ published: true
 
 도당동 아카이브는 그 뒤쪽 일을 맡는 개인 아카이브다. 한 집안의 사진·편지·음성·영상과 그에 얽힌 사건을 도서관이 자료를 적는 방식, 더블린코어(Dublin Core)로 기술해 둔다.
 
-- 소개: [metaphr.dev/app.html?id=dodangdong-archive](https://metaphr.dev/app.html?id=dodangdong-archive)
+- 소개: [metaphr.dev — 가족 아카이브](https://metaphr.dev/app.html?id=family-archive) (맞춤 가족 아카이브의 첫 제작 사례)
 - 저장소: [github.com/ksthink/dodangdong_archive](https://github.com/ksthink/dodangdong_archive)
 - 운영 주소: dodangdong-archive.vercel.app — 가족사 기록이라 닫아 두었다. 열면 문 화면만 보인다.
 
