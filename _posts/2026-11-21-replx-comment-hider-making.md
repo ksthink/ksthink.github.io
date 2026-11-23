@@ -11,7 +11,7 @@ published: true
 
 - 소개: [metaphr.dev/app.html?id=replx](https://metaphr.dev/app.html?id=replx)
 - 저장소: [github.com/ksthink/replx](https://github.com/ksthink/replx)
-- 지금은 Chrome 웹 스토어 심사 중이다. 그동안은 [릴리스의 zip](https://github.com/ksthink/replx/releases/latest/download/replx.zip)을 받아 직접 설치할 수 있다.
+- 받기: [Chrome 웹 스토어](https://chromewebstore.google.com/detail/replx/kkelcijbhbmjlfimhemeadapnhmplmdk) (2026년 11월 23일 심사 통과)
 
 이틀 동안 만들었고, 그 사이에 방향이 한 번 크게 바뀌었다. 이 글은 그 기록이다.
 
@@ -104,7 +104,7 @@ README와 스토어에 쓰는 스크린샷도 같은 장치로 찍는다. 화면
 
 Chrome 웹 스토어는 권한을 하나하나 묻는다. Replx가 요청하는 권한은 `storage`와 `contextMenus` 둘뿐이고, 처음에 넣었던 `activeTab`은 쓰지 않아서 뺐다.
 
-어려운 건 호스트 권한이었다. 콘텐츠 스크립트가 모든 http/https 페이지에서 돌기 때문에 대시보드가 "광범위한 호스트 권한"이라며 activeTab을 쓰라고 권한다. 하지만 activeTab은 사용자가 아이콘을 누른 뒤에야 권한을 준다. Replx는 페이지가 열리는 순간(`document_start`) 댓글이 보이기 전에 숨겨야 하니, 페이지마다 누르게 하면 확장의 목적이 사라진다. 그 이유와 함께, 네트워크 요청이 없고 페이지 내용을 수집하지 않는다는 점을 적어 제출했다. 심사가 며칠 더 걸릴 수 있다는 안내를 받았다.
+어려운 건 호스트 권한이었다. 콘텐츠 스크립트가 모든 http/https 페이지에서 돌기 때문에 대시보드가 "광범위한 호스트 권한"이라며 activeTab을 쓰라고 권한다. 하지만 activeTab은 사용자가 아이콘을 누른 뒤에야 권한을 준다. Replx는 페이지가 열리는 순간(`document_start`) 댓글이 보이기 전에 숨겨야 하니, 페이지마다 누르게 하면 확장의 목적이 사라진다. 그 이유와 함께, 네트워크 요청이 없고 페이지 내용을 수집하지 않는다는 점을 적어 제출했다. 심사가 며칠 더 걸릴 수 있다는 안내를 받았지만, 이틀 만에 통과했다.
 
 ![스토어 스크린샷 — 왼쪽은 페이지, 오른쪽은 팝업](/images/replx-store.png)
 *스토어 스크린샷. 팝업에서 바꾼 설정을 빨간 테두리로 표시하고, 왼쪽 페이지에 그 결과를 보인다.*
