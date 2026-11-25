@@ -1,7 +1,7 @@
 # Site settings
 title:          metaphr.dev
 description:    "언어와 언어를 연결합니다."
-url:            https://metaphr.dev
+url:            https://blog.metaphr.dev
 
 # Author
 author:
@@ -31,10 +31,3 @@ paginate:       5
 related_posts_section:
   max_count:        5
   min_common_tags:  2
-
-# Links to social media
-social:
-  email: 
-  github: 
-  twitter: 
-  linkedin: 

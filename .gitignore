@@ -3,3 +3,6 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 Gemfile.lock
+
+# 에이전트 세션 상태
+.omc/
