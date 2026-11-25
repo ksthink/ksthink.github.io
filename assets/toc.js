@@ -27,8 +27,22 @@
   function setActive(i) {
     if (i === current) return;
     if (current >= 0) links[current].classList.remove('active');
-    if (i >= 0) links[i].classList.add('active');
+    if (i >= 0) {
+      links[i].classList.add('active');
+      reveal(links[i]);
+    }
     current = i;
+  }
+
+  // The scrollbar is hidden, so when the list is taller than the box keep the
+  // lit item in view by scrolling the box itself (never the page).
+  function reveal(link) {
+    if (toc.scrollHeight <= toc.clientHeight) return;
+    var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+    var bottom = top + link.offsetHeight;
+    var pad = 24;
+    if (top - pad < toc.scrollTop) toc.scrollTop = Math.max(top - pad, 0);
+    else if (bottom + pad > toc.scrollTop + toc.clientHeight) toc.scrollTop = bottom + pad - toc.clientHeight;
   }
 
   // After a TOC jump, keep the chosen item lit even if a short section lets the

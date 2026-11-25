@@ -69,6 +69,13 @@ footer {
     max-height: calc(100vh - 12rem);
     overflow-y: auto;
     position: fixed;
+    // 목차가 길어도 스크롤바는 숨긴다. 휠·터치로는 그대로 스크롤된다.
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
     top: 8rem;
     width: 200px;
 
