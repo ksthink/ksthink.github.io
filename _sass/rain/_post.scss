@@ -1,4 +1,5 @@
 .post {
+  font-family: $body-serif;
   padding: 3rem 0;
 
   &-info {
@@ -14,8 +15,9 @@
 
   &-title {
     color: $default-shade;
-    font-family: $display-font;
+    font-family: $title-font;
     font-size: 2rem;
+    font-weight: 400;
     margin: 0 0 1rem 0;
     text-align: center;
   }
