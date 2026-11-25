@@ -13,6 +13,11 @@
     &:last-child {
       border: 0;
     }
+
+    // 목록의 글 요약도 본문처럼 나눔명조로.
+    p {
+      font-family: $body-serif;
+    }
   }
 
   &-time {
