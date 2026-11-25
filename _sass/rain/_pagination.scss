@@ -63,3 +63,39 @@
     vertical-align: text-bottom;
   }
 }
+
+.page-numbers {
+  align-items: center;
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+
+  .page-number,
+  .page-arrow {
+    @include transition(all .2s ease-out);
+    border: 1px solid transparent;
+    color: $default-color;
+    display: inline-block;
+    font-size: 1.1rem;
+    line-height: 2.2rem;
+    min-width: 2.2rem;
+    text-align: center;
+  }
+
+  a.page-number:hover,
+  a.page-arrow:hover,
+  a.page-number:focus,
+  a.page-arrow:focus {
+    border-color: $default-color;
+    text-decoration: none;
+  }
+
+  .page-number.current {
+    background: $default-color;
+    color: $background-color;
+  }
+
+  .page-arrow.disabled {
+    opacity: .25;
+  }
+}
