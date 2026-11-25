@@ -68,29 +68,46 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: .6rem;
+  gap: .25rem;
   justify-content: center;
 
+  // 손가락으로 누르기 쉽게 칸마다 최소 44px 를 준다.
   .page-number,
   .page-more {
-    @include transition(opacity .2s ease-out);
+    @include transition(color .15s ease-out, background-color .15s ease-out);
+    align-items: center;
+    border-radius: 4px;
     color: $default-color;
-    font-size: 1.1rem;
-    line-height: 2rem;
+    display: inline-flex;
+    font-size: 1.15rem;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 .35rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   a.page-number,
   a.page-more {
-    opacity: .55;
+    opacity: .6;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
+      background-color: rgba(58, 58, 56, .08);
       opacity: 1;
       text-decoration: none;
+    }
+
+    &:active {
+      background-color: rgba(255, 99, 71, .15);
+      color: tomato;
+      opacity: 1;
     }
   }
 
   .page-number.current {
+    color: tomato;
     font-weight: bold;
     opacity: 1;
   }
