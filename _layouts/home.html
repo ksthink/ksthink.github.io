@@ -23,7 +23,7 @@ layout: default
 
 {% if paginator.total_pages > 1 %}
 {% comment %}
-  번호는 5개씩 묶어 [1] [2] [3] [4] [5] 처럼 보여 준다.
+  번호는 5개씩 묶어 네모 칸으로 보여 준다.
   앞뒤에 묶음이 더 있으면 ... 이 붙고, 누르면 그 묶음의 첫 쪽으로 간다.
 {% endcomment %}
 {% assign block_size = 5 %}
@@ -41,10 +41,10 @@ layout: default
     {% endif %}
     {% for n in (block_start..block_end) %}
       {% if n == paginator.page %}
-        <span class="page-number current" aria-current="page">[{{ n }}]</span>
+        <span class="page-number current" aria-current="page">{{ n }}</span>
       {% else %}
         {% if n == 1 %}{% assign href = '/' %}{% else %}{% assign href = page_path | replace: ':num', n %}{% endif %}
-        <a class="page-number" href="{{ href | prepend: site.baseurl }}">[{{ n }}]</a>
+        <a class="page-number" href="{{ href | prepend: site.baseurl }}">{{ n }}</a>
       {% endif %}
     {% endfor %}
     {% if next_block <= paginator.total_pages %}

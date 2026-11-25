@@ -68,47 +68,58 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: .25rem;
+  gap: .4rem;
   justify-content: center;
 
   // 손가락으로 누르기 쉽게 칸마다 최소 44px 를 준다.
   .page-number,
   .page-more {
-    @include transition(color .15s ease-out, background-color .15s ease-out);
+    @include transition(color .15s ease-out, border-color .15s ease-out, background-color .15s ease-out);
     align-items: center;
-    border-radius: 4px;
+    box-sizing: border-box;
     color: $default-color;
     display: inline-flex;
     font-size: 1.15rem;
     justify-content: center;
     min-height: 44px;
     min-width: 44px;
-    padding: 0 .35rem;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
 
+  // 번호는 네모 프레임 안에 넣는다.
+  .page-number {
+    border: 2px solid rgba(58, 58, 56, .35);
+    padding: 0 .4rem;
+  }
+
   a.page-number,
+  a.page-more {
+    &:hover,
+    &:focus-visible {
+      border-color: $default-color;
+      text-decoration: none;
+    }
+
+    &:active {
+      border-color: tomato;
+      color: tomato;
+    }
+  }
+
   a.page-more {
     opacity: .6;
 
     &:hover,
     &:focus-visible {
-      background-color: rgba(58, 58, 56, .08);
-      opacity: 1;
-      text-decoration: none;
-    }
-
-    &:active {
-      background-color: rgba(255, 99, 71, .15);
-      color: tomato;
       opacity: 1;
     }
   }
 
+  // 지금 보고 있는 쪽은 토마토색 프레임.
   .page-number.current {
+    border-color: tomato;
     color: tomato;
     font-weight: bold;
-    opacity: 1;
   }
 }
