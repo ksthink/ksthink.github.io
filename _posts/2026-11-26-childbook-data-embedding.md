@@ -10,7 +10,7 @@ published: true
 대림도서관 어린이 영어 원서 3,061권을 문장으로 찾는 검색 서비스다. "잠자리에 읽어주는 동화"처럼 한국어로 적으면 뜻이 가까운 영어 그림책을 돌려준다. 검색은 의미·키워드(BM25)·혼합 세 방식이고, AR 지수 범위와 평점으로 거를 수 있다.
 
 - 소개: [metaphr.dev/app.html?id=childbook](https://metaphr.dev/app.html?id=childbook)
-- 서비스: [13.209.31.163:8505](http://13.209.31.163:8505)
+- 데모: [engbook.metaphr.dev](https://engbook.metaphr.dev/) (2026-11-26 기준 데이터로 고정)
 
 ![의미 검색 — 잠자리에 읽어주는 동화](/images/childbook-semantic-bedtime.png)
 *한국어로 "잠자리에 읽어주는 동화"를 의미 모드로 찾은 결과. Awake, asleep과 The Yawns are coming이 위에 온다.*
